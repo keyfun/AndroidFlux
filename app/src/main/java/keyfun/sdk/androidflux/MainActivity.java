@@ -30,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
         actionsCreator = ActionsCreator.get(dispatcher);
         todoStore = TodoStore.get(dispatcher);
 
-
+        /*
+                self.todoStore.eventEmitter.listen(TodoStore.Event.Deleted) { () in
+                    self.tableView.reloadData()
+                }
+                ActionCreator.invoke(TodoAction.Fetch())
+                */
     }
 
     @Override

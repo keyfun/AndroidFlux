@@ -21,7 +21,6 @@ public class Dispatcher {
 
     public void register(final Object cls) {
         bus.register(cls);
-
     }
 
     public void unregister(final Object cls) {
