@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux;
+package keyfun.sdk.androidflux.otto;
 
 import java.util.HashMap;
 

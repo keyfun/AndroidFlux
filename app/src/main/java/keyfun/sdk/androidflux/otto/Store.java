@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux;
+package keyfun.sdk.androidflux.otto;
 
 /**
  * Created by Key on 24/11/2015.

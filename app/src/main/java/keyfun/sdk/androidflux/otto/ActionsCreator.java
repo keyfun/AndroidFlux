@@ -1,7 +1,7 @@
-package keyfun.sdk.androidflux;
+package keyfun.sdk.androidflux.otto;
 
-import keyfun.sdk.androidflux.demo.Todo;
-import keyfun.sdk.androidflux.demo.TodoAction;
+import keyfun.sdk.androidflux.ottodemo.Todo;
+import keyfun.sdk.androidflux.ottodemo.TodoAction;
 
 /**
  * Created by Key on 24/11/2015.

@@ -1,17 +1,29 @@
 package keyfun.sdk.androidflux.demo;
 
 /**
- * Created by Key on 24/11/2015.
+ * Created by Key on 27/11/2015.
  */
-public interface TodoAction {
-    String TODO_CREATE = "todo-create";
-    String TODO_COMPLETE = "todo-complete";
-    String TODO_DESTROY = "todo-destroy";
-    String TODO_DESTROY_COMPLETED = "todo-destroy-completed";
-    String TODO_TOGGLE_COMPLETE_ALL = "todo-toggle-complete-all";
-    String TODO_UNDO_COMPLETE = "todo-undo-complete";
-    String TODO_UNDO_DESTROY = "todo-undo-destroy";
+public enum TodoAction {
+    TODO_COMPLETE,
+    TODO_CREATE,
+    TODO_DESTROY,
+    UPDATE_TEXT;
 
-    String KEY_TEXT = "key-text";
-    String KEY_ID = "key-id";
+    @Override
+    public String toString() {
+        switch (this) {
+            case TODO_COMPLETE:
+                return "todo-complete";
+
+            case TODO_CREATE:
+                return "todo-create";
+
+            case TODO_DESTROY:
+                return "todo-destroy";
+
+            case UPDATE_TEXT:
+                return "update-tex";
+        }
+        return super.toString();
+    }
 }
