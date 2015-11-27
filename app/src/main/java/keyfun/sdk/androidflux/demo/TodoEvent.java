@@ -4,6 +4,11 @@ package keyfun.sdk.androidflux.demo;
  * Created by Key on 28/11/2015.
  */
 public class TodoEvent implements Event {
+
+    // define action
+    public static final String MY_LABEL_CHANGED = "myLabelChanged";
+    public static final String MY_COUNT_CHANGED = "myCountChanged";
+
     private String type;
 
     @Override

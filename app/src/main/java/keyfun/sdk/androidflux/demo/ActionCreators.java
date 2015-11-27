@@ -13,4 +13,8 @@ public class ActionCreators {
         return instance;
     }
 
+    public static void invoke(Store store, String action, Object... data) {
+        store.invoke(action, data);
+    }
+
 }

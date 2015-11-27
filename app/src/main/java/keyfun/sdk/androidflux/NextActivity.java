@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import keyfun.sdk.androidflux.demo.ActionCreators;
 import keyfun.sdk.androidflux.demo.Event;
 import keyfun.sdk.androidflux.demo.EventListener;
+import keyfun.sdk.androidflux.demo.TodoEvent;
 import keyfun.sdk.androidflux.demo.TodoStore;
 
 /**
@@ -35,8 +37,8 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initFlux() {
         Log.d(TAG, "initFlux");
-        AppGlobal.getInstance().todoStore.addListener(TodoStore.ChangeEvent.MY_LABEL_CHANGED, labelChangedListener);
-        AppGlobal.getInstance().todoStore.addListener(TodoStore.ChangeEvent.MY_COUNT_CHANGED, countChangedListener);
+        AppGlobal.getInstance().todoStore.addListener(TodoEvent.MY_LABEL_CHANGED, labelChangedListener);
+        AppGlobal.getInstance().todoStore.addListener(TodoEvent.MY_COUNT_CHANGED, countChangedListener);
     }
 
     @Override
@@ -66,13 +68,13 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
-        AppGlobal.getInstance().todoStore.removeListener(TodoStore.ChangeEvent.MY_LABEL_CHANGED, labelChangedListener);
-        AppGlobal.getInstance().todoStore.removeListener(TodoStore.ChangeEvent.MY_COUNT_CHANGED, countChangedListener);
+        AppGlobal.getInstance().todoStore.removeListener(TodoEvent.MY_LABEL_CHANGED, labelChangedListener);
+        AppGlobal.getInstance().todoStore.removeListener(TodoEvent.MY_COUNT_CHANGED, countChangedListener);
     }
 
     private void newAction() {
         //Log.d(TAG, "newAction");
-        AppGlobal.getInstance().todoStore.setMyCount(AppGlobal.getInstance().todoStore.getMyCount() + 1);
+        ActionCreators.invoke(AppGlobal.getInstance().todoStore, TodoEvent.MY_COUNT_CHANGED, AppGlobal.getInstance().todoStore.getMyCount() + 1);
     }
 
     private void nextActivity() {
