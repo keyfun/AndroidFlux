@@ -1,4 +1,7 @@
-package keyfun.sdk.androidflux.demo;
+package keyfun.demo.flux.test.flux.stores;
+
+import keyfun.demo.flux.test.flux.events.TodoEvent;
+import keyfun.sdk.flux.Store;
 
 /**
  * Created by Key on 27/11/2015.
@@ -10,7 +13,7 @@ public class TodoStore extends Store {
     private void setMyLabel(String myLabel) {
         if (this.myLabel != null && this.myLabel.equals(myLabel)) return;
         this.myLabel = myLabel;
-        dispatchEvent(new TodoEvent(TodoEvent.MY_LABEL_CHANGED));
+        dispatchEvent(new TodoEvent(TodoEvent.UPDATE_TEXT));
     }
 
     private int myCount = 0;
@@ -18,7 +21,7 @@ public class TodoStore extends Store {
     private void setMyCount(int myCount) {
         if (this.myCount == myCount) return;
         this.myCount = myCount;
-        dispatchEvent(new TodoEvent(TodoEvent.MY_COUNT_CHANGED));
+        dispatchEvent(new TodoEvent(TodoEvent.UPDATE_COUNT));
     }
 
     public TodoStore() {
@@ -30,11 +33,11 @@ public class TodoStore extends Store {
         super.invoke(action, data);
 
         switch (action) {
-            case TodoEvent.MY_COUNT_CHANGED:
+            case TodoEvent.UPDATE_COUNT:
                 setMyCount((Integer) data[0]);
                 break;
 
-            case TodoEvent.MY_LABEL_CHANGED:
+            case TodoEvent.UPDATE_TEXT:
                 setMyLabel(String.valueOf(data[0]));
                 break;
         }

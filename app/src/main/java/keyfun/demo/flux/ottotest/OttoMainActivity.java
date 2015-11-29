@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux;
+package keyfun.demo.flux.ottotest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.util.Log;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import keyfun.sdk.androidflux.ottodemo.TodoStore;
-import keyfun.sdk.androidflux.otto.ActionsCreator;
-import keyfun.sdk.androidflux.otto.Dispatcher;
+import keyfun.sdk.flux.R;
+import keyfun.demo.flux.ottolib.ActionsCreator;
+import keyfun.demo.flux.ottolib.Dispatcher;
 
 public class OttoMainActivity extends AppCompatActivity {
 

@@ -1,6 +1,6 @@
-package keyfun.sdk.androidflux;
+package keyfun.demo.flux.test;
 
-import keyfun.sdk.androidflux.demo.TodoStore;
+import keyfun.demo.flux.test.flux.stores.TodoStore;
 
 /**
  * Created by Key on 28/11/2015.

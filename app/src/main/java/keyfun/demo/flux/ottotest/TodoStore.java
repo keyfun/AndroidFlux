@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux.ottodemo;
+package keyfun.demo.flux.ottotest;
 
 import com.squareup.otto.Subscribe;
 
@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import keyfun.sdk.androidflux.otto.Action;
-import keyfun.sdk.androidflux.otto.Dispatcher;
-import keyfun.sdk.androidflux.otto.Store;
+import keyfun.demo.flux.ottolib.Action;
+import keyfun.demo.flux.ottolib.Dispatcher;
+import keyfun.demo.flux.ottolib.Store;
 
 /**
  * Created by Key on 24/11/2015.

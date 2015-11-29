@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux;
+package keyfun.sdk.flux;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

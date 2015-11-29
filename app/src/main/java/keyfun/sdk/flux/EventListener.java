@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux.demo;
+package keyfun.sdk.flux;
 
 /**
  * Created by Key on 28/11/2015.

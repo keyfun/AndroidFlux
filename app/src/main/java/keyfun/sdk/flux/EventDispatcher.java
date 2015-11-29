@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux.demo;
+package keyfun.sdk.flux;
 
 /**
  * Created by Key on 28/11/2015.
@@ -24,7 +24,7 @@ public class EventDispatcher implements Dispatcher {
     }
 
     @Override
-    public void addListener(String type, EventListener listener) {
+    public void addEventListener(String type, EventListener listener) {
         synchronized (listenerMap) {
             CopyOnWriteArrayList<EventListener> list = listenerMap.get(type);
             if (list == null) {
@@ -36,7 +36,7 @@ public class EventDispatcher implements Dispatcher {
     }
 
     @Override
-    public void removeListener(String type, EventListener listener) {
+    public void removeEventListener(String type, EventListener listener) {
         synchronized (listenerMap) {
             CopyOnWriteArrayList<EventListener> list = listenerMap.get(type);
             if (list == null) return;
@@ -48,7 +48,7 @@ public class EventDispatcher implements Dispatcher {
     }
 
     @Override
-    public boolean hasListener(String type, EventListener listener) {
+    public boolean hasEventListener(String type, EventListener listener) {
         synchronized (listenerMap) {
             CopyOnWriteArrayList<EventListener> list = listenerMap.get(type);
             if (list == null) return false;

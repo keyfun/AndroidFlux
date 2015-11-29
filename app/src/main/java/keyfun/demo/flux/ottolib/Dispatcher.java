@@ -1,4 +1,4 @@
-package keyfun.sdk.androidflux.otto;
+package keyfun.demo.flux.ottolib;
 
 import com.squareup.otto.Bus;
 /**
