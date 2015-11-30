@@ -1,99 +1,18 @@
 package keyfun.demo.flux.test;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
-import keyfun.sdk.flux.R;
-import keyfun.sdk.flux.ActionCreators;
-import keyfun.sdk.flux.Event;
-import keyfun.sdk.flux.EventListener;
-import keyfun.demo.flux.test.flux.events.TodoEvent;
 
 /**
  * Created by Key on 28/11/2015.
  */
-public class NextActivity extends AppCompatActivity implements View.OnClickListener  {
+public class NextActivity extends MainActivity  {
     private static final String TAG = "NextActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("NextActivity");
+        setTitle("NextActivity + " + AppGlobal.getInstance().activityCount);
         Log.d(TAG, "onCreate");
-
-        Button btnNewAction = (Button) findViewById(R.id.btn_new_action);
-        btnNewAction.setOnClickListener(this);
-
-        Button btnNextActivity = (Button) findViewById(R.id.btn_next_activity);
-        btnNextActivity.setOnClickListener(this);
-
-        initFlux();
     }
-
-    private void initFlux() {
-        Log.d(TAG, "initFlux");
-        AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.UPDATE_TEXT, labelChangedListener);
-        AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.UPDATE_COUNT, countChangedListener);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_new_action:
-                newAction();
-                break;
-
-            case R.id.btn_next_activity:
-                nextActivity();
-                break;
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy");
-        AppGlobal.getInstance().todoStore.removeEventListener(TodoEvent.UPDATE_TEXT, labelChangedListener);
-        AppGlobal.getInstance().todoStore.removeEventListener(TodoEvent.UPDATE_COUNT, countChangedListener);
-    }
-
-    private void newAction() {
-        //Log.d(TAG, "newAction");
-        ActionCreators.invoke(AppGlobal.getInstance().todoStore, TodoEvent.UPDATE_COUNT, AppGlobal.getInstance().todoStore.getMyCount() + 1);
-    }
-
-    private void nextActivity() {
-        Intent intent = new Intent(this, NextActivity.class);
-        startActivity(intent);
-    }
-
-    // this is our action/event listeners. They get called when a property changes.
-    private EventListener labelChangedListener = new EventListener() {
-        @Override
-        public void onEvent(Event event) {
-            Log.d(TAG, "Label: " + AppGlobal.getInstance().todoStore.getMyLabel());
-        }
-    };
-
-    private EventListener countChangedListener = new EventListener() {
-        @Override
-        public void onEvent(Event event) {
-            Log.d(TAG, "Count: " + AppGlobal.getInstance().todoStore.getMyCount());
-        }
-    };
 }

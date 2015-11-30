@@ -14,6 +14,8 @@ public class AppGlobal {
 
     public TodoStore todoStore = new TodoStore();
 
+    public int activityCount = 0;
+
     private AppGlobal() {
     }
 }
