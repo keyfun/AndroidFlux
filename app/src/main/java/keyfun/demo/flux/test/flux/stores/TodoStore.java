@@ -55,7 +55,7 @@ public class TodoStore extends Store {
         dispatchEvent(new TodoEvent(TodoEvent.ADD_ITEM));
     }
 
-    public void remvoeItem() {
+    public void removeItem() {
         if(dataList.list.size() > 0) {
             dataList.list.remove(0);
             dispatchEvent(new TodoEvent(TodoEvent.REMOVE_ITEM));
@@ -80,7 +80,7 @@ public class TodoStore extends Store {
                 break;
 
             case TodoEvent.REMOVE_ITEM:
-                remvoeItem();
+                removeItem();
                 break;
         }
 

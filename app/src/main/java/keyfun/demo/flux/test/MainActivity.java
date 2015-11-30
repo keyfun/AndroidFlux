@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.UPDATE_LABEL, onUpdateLabel);
         AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.UPDATE_COUNT, onUpdateCount);
         AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.ADD_ITEM, onAddItem);
+        AppGlobal.getInstance().todoStore.addEventListener(TodoEvent.REMOVE_ITEM, onRemoveItem);
     }
 
     @Override
@@ -137,16 +138,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onEvent(Event event) {
             Log.d(TAG, "onAddItem");
-            adapter.notifyDataSetChanged();
-            listView.invalidateViews();
+            refreshList();
         }
     };
 
-    private EventListener onRemvoeItem = new EventListener() {
+    private EventListener onRemoveItem = new EventListener() {
         @Override
         public void onEvent(Event event) {
-            Log.d(TAG, "onRemvoeItem");
-            adapter.notifyDataSetChanged();
+            Log.d(TAG, "onRemoveItem");
+            refreshList();
         }
     };
+
+    private void refreshList() {
+        adapter.clear();
+        adapter.addAll(AppGlobal.getInstance().todoStore.getStringList());
+        adapter.notifyDataSetChanged();
+    }
 }
