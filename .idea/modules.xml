@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidFlux.iml" filepath="$PROJECT_DIR$/AndroidFlux.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libflux/libflux.iml" filepath="$PROJECT_DIR$/libflux/libflux.iml" />
     </modules>
   </component>
 </project>
