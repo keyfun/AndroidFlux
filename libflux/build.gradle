@@ -1,5 +1,32 @@
 apply plugin: 'com.android.library'
 
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-flux'
+
+    publishedGroupId = 'net.keyfunapp'
+    libraryName = 'AndroidFlux'
+    artifact = 'android-flux'
+
+    libraryDescription = 'A light weight flux library for Andorid'
+
+    siteUrl = 'https://github.com/keyfun/AndroidFlux'
+    gitUrl = 'https://github.com/keyfun/AndroidFlux.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'keyfun'
+    developerName = 'Key Fun'
+    developerEmail = 'keyfun.hk@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
