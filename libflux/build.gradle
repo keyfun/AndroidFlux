@@ -1,15 +1,12 @@
 apply plugin: 'com.android.library'
 
-//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'android-flux'
 
     publishedGroupId = 'net.keyfunapp'
     libraryName = 'AndroidFlux'
-    artifact = 'android-flux'
+    artifact = 'libflux' // must same as package name
 
     libraryDescription = 'A light weight flux library for Andorid'
 
@@ -49,3 +46,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
